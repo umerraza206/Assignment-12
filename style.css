@@ -1,0 +1,329 @@
+/* Universal and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Use a common, clean sans-serif font */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+:root {
+    --primary-color: #800020; /* Dark Maroon/Red for header and buttons */
+    --secondary-bg: #EAEAEA; /* Light Gray for footer and main body */
+    --text-color: #333;
+    --light-text: #f0f0f0;
+}
+
+body {
+    background-color: var(--secondary-bg);
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px; /* Standard web page width */
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- Header and Navigation Bar --- */
+.navbar {
+    background-color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav-links a {
+    margin-left: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.login-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.login-btn:hover {
+    background-color: #a00030;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero-section h2 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.create-blog-btn {
+    background-color: #fff;
+    color: var(--primary-color);
+    border: none;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.create-blog-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* --- Blog Posts Grid --- */
+.posts-grid-section {
+    padding: 50px 0;
+}
+
+.grid-container {
+    display: grid;
+    /* 4 columns as seen in the screenshot */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.post-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.image-wrapper {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    /* Gradient overlay visible on the image in the screenshot */
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.image-wrapper:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.5) 100%);
+}
+
+/* Adding the purple/blue highlighted box for visual matching */
+.post-card:nth-child(1) .image-wrapper:after, 
+.post-card:nth-child(5) .image-wrapper:after {
+    background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.5) 100%), 
+                linear-gradient(rgba(100, 50, 200, 0.3), rgba(100, 50, 200, 0.3)); /* Purple/Blue overlay */
+}
+
+
+.post-content {
+    padding: 15px;
+}
+
+.post-content h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.post-content .excerpt {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.read-more {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.author {
+    color: #999;
+}
+
+/* --- Footer Section --- */
+.main-footer {
+    background-color: #ffffff;
+    padding-top: 50px;
+}
+
+.footer-grid {
+    display: grid;
+    /* 5 columns as per the screenshot */
+    grid-template-columns: 2fr repeat(4, 1fr); 
+    gap: 30px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #ddd;
+}
+
+.footer-col h3, .footer-col h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.brand-col p {
+    font-size: 14px;
+    color: #666;
+}
+
+.footer-col ul li {
+    margin-bottom: 8px;
+}
+
+.footer-col ul a {
+    font-size: 14px;
+    color: #666;
+}
+
+.footer-col ul a:hover {
+    color: var(--primary-color);
+}
+
+.contact-col p {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.newsletter-form {
+    display: flex;
+    margin-top: 10px;
+}
+
+.newsletter-form input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    flex-grow: 1;
+    border-radius: 5px 0 0 5px;
+    font-size: 14px;
+}
+
+.newsletter-form button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Copyright Bar */
+.copyright-bar {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 15px 0;
+    font-size: 12px;
+}
+
+.copyright-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.font-icons-text {
+    /* Style to match the small text on the right */
+    opacity: 0.7;
+}
+
+/* --- Responsiveness (Optional but recommended) --- */
+@media (max-width: 992px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr; /* 2 columns on tablets */
+        width: 80%;
+        background-color: #750303;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nav-links {
+        margin-top: 10px;
+    }
+
+    .nav-links a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+
+    .copyright-bar .container {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
