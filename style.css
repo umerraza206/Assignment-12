@@ -127,7 +127,7 @@ ul {
 
 .post-card {
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -326,4 +326,5 @@ ul {
         flex-direction: column;
         gap: 5px;
     }
+
 }
