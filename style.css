@@ -287,10 +287,9 @@ ul {
 }
 
 /* --- Responsiveness (Optional but recommended) --- */
-@media (max-width: 992px) {
     .grid-container {
         grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
-    }
+    
 
     .footer-grid {
         grid-template-columns: 1fr 1fr; /* 2 columns on tablets */
@@ -299,11 +298,10 @@ ul {
     }
 }
 
-@media (max-width: 576px) {
     .navbar .container {
         flex-direction: column;
         text-align: center;
-    }
+    
     
     .nav-links {
         margin-top: 10px;
@@ -328,3 +326,4 @@ ul {
     }
 
 }
+
