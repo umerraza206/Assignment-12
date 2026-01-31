@@ -1,49 +1,38 @@
-/* Universal and Base Styles */
+/* --- General Reset & Typography --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Use a common, clean sans-serif font */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-:root {
-    --primary-color: #800020; /* Dark Maroon/Red for header and buttons */
-    --secondary-bg: #EAEAEA; /* Light Gray for footer and main body */
-    --text-color: #333;
-    --light-text: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: var(--secondary-bg);
-    line-height: 1.6;
-    color: var(--text-color);
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px; /* Standard web page width */
-    margin: 0 auto;
+   
+    color: #333;
 }
 
 a {
     text-decoration: none;
     color: inherit;
-    transition: color 0.3s;
 }
 
 ul {
     list-style: none;
 }
 
-/* --- Header and Navigation Bar --- */
-.navbar {
-    background-color: #fff;
-    padding: 15px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.navbar .container {
+/* --- Header / Navigation --- */
+header {
+    background-color:#D9D9D9;
+    padding: 15px 0;
+}
+
+.nav-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,279 +40,174 @@ ul {
 
 .logo {
     font-size: 24px;
-    font-weight: 700;
-    color: var(--primary-color);
+    font-weight: bold;
+    color: #382525;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
 }
 
 .nav-links a {
-    margin-left: 20px;
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--text-color);
-}
-
-.nav-links a:hover {
-    color: var(--primary-color);
+    font-size: 14px;
+    color: #3F1919;
 }
 
 .login-btn {
-    background-color: var(--primary-color);
-    color: #fff;
+    background-color: #3e1e24; /* Dark brownish-red */
+    color: #FFFDFD !important;
     padding: 8px 20px;
-    border-radius: 5px;
-    font-weight: 600;
-}
-
-.login-btn:hover {
-    background-color: #a00030;
+    border-radius: 4px;
+    font-size: 14px;
 }
 
 /* --- Hero Section --- */
-.hero-section {
-    background-color: var(--primary-color);
-    color: var(--light-text);
+.hero {
+    background-color: #3e1e24; /* Dark brownish-red from image */
+    color: white;
     text-align: center;
     padding: 80px 20px;
 }
 
-.hero-section h2 {
-    font-size: 42px;
-    font-weight: 700;
+.hero h1 {
+    font-size: 36px;
     margin-bottom: 10px;
+    font-weight: normal;
 }
 
-.hero-section p {
-    font-size: 18px;
+.hero p {
+    font-size: 16px;
     margin-bottom: 30px;
+    opacity: 0.9;
 }
 
-.create-blog-btn {
-    background-color: #fff;
-    color: var(--primary-color);
-    border: none;
-    padding: 12px 30px;
-    font-size: 18px;
-    font-weight: 600;
+.cta-btn {
+    background-color: #e56b6f; /* Salmon/Coral color */
+    color: white;
+    padding: 12px 25px;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    font-weight: bold;
+    display: inline-block;
 }
 
-.create-blog-btn:hover {
-    background-color: #f0f0f0;
+/* --- Blog Grid Section --- */
+.blog-section {
+    padding: 60px 0;
+    background-color: white;
 }
 
-/* --- Blog Posts Grid --- */
-.posts-grid-section {
-    padding: 50px 0;
-}
-
-.grid-container {
+.grid {
     display: grid;
-    /* 4 columns as seen in the screenshot */
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
 
-.post-card {
-    background-color: #fff;
-    border-radius: 15px;
+.card {
+    background-color: #eee;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.image-wrapper {
+.card-image {
     width: 100%;
-    height: 150px;
-    overflow: hidden;
-    position: relative;
-    /* Gradient overlay visible on the image in the screenshot */
-}
-
-.image-wrapper img {
-    width: 100%;
-    height: 100%;
+    height: 180px;
+    background-color: #ddd;
     object-fit: cover;
-    display: block;
 }
 
-.image-wrapper:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.5) 100%);
+.card-content {
+    padding: 20px;
 }
 
-/* Adding the purple/blue highlighted box for visual matching */
-.post-card:nth-child(1) .image-wrapper:after, 
-.post-card:nth-child(5) .image-wrapper:after {
-    background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.5) 100%), 
-                linear-gradient(rgba(100, 50, 200, 0.3), rgba(100, 50, 200, 0.3)); /* Purple/Blue overlay */
-}
-
-
-.post-content {
-    padding: 15px;
-}
-
-.post-content h3 {
-    font-size: 18px;
-    font-weight: 700;
+.card-title {
+    font-size: 16px;
+    font-weight: bold;
     margin-bottom: 10px;
-    color: var(--primary-color);
+    line-height: 1.4;
 }
 
-.post-content .excerpt {
-    font-size: 14px;
+.card-text {
+    font-size: 13px;
     color: #666;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    line-height: 1.5;
 }
 
-.post-meta {
+.card-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 14px;
+    font-size: 12px;
+    color: #555;
 }
 
 .read-more {
-    font-weight: 600;
-    color: var(--primary-color);
-}
-
-.author {
-    color: #999;
+    font-weight: bold;
+    color: #333;
 }
 
 /* --- Footer Section --- */
-.main-footer {
-    background-color: #ffffff;
+footer {
+    background-color: #dcdcdc; /* Light grey footer bg */
     padding-top: 50px;
 }
 
 .footer-grid {
     display: grid;
-    /* 5 columns as per the screenshot */
-    grid-template-columns: 2fr repeat(4, 1fr); 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
     padding-bottom: 40px;
-    border-bottom: 1px solid #ddd;
 }
 
-.footer-col h3, .footer-col h4 {
+.footer-col h3 {
     font-size: 18px;
-    font-weight: 600;
     margin-bottom: 15px;
-    color: var(--primary-color);
+    color: #333;
 }
 
-.brand-col p {
-    font-size: 14px;
-    color: #666;
-}
-
-.footer-col ul li {
+.footer-col p, .footer-col a {
+    font-size: 13px;
+    color: #555;
     margin-bottom: 8px;
-}
-
-.footer-col ul a {
-    font-size: 14px;
-    color: #666;
-}
-
-.footer-col ul a:hover {
-    color: var(--primary-color);
-}
-
-.contact-col p {
-    font-size: 14px;
-    margin-bottom: 5px;
-    color: #666;
+    display: block;
+    line-height: 1.6;
 }
 
 .newsletter-form {
     display: flex;
+    gap: 5px;
     margin-top: 10px;
 }
 
-.newsletter-form input[type="email"] {
-    padding: 10px;
+.newsletter-form input {
+    padding: 8px;
     border: 1px solid #ccc;
-    flex-grow: 1;
-    border-radius: 5px 0 0 5px;
-    font-size: 14px;
+    border-radius: 4px;
+    width: 100%;
 }
 
 .newsletter-form button {
-    background-color: var(--primary-color);
-    color: #fff;
+    background-color: #e56b6f;
+    color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 8px 12px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
-    border-radius: 0 5px 5px 0;
 }
 
-/* Copyright Bar */
-.copyright-bar {
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 15px 0;
+/* --- Copyright Bar --- */
+.copyright {
+    background-color: #e56b6f; /* Salmon/Coral color */
+    color: white;
+    text-align: center;
+    padding: 15px;
     font-size: 12px;
-}
-
-.copyright-bar .container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
-.font-icons-text {
-    /* Style to match the small text on the right */
-    opacity: 0.7;
-}
-
-/* --- Responsiveness (Optional but recommended) --- */
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
-    
-
-    .footer-grid {
-        grid-template-columns: 1fr 1fr; /* 2 columns on tablets */
-        width: 80%;
-        background-color: #750303;
-    }
-}
-
-    .navbar .container {
-        flex-direction: column;
-        text-align: center;
-    
-    
-    .nav-links {
-        margin-top: 10px;
-    }
-
-    .nav-links a {
-        display: block;
-        margin: 5px 0;
-    }
-
-    .grid-container {
-        grid-template-columns: 1fr; /* 1 column on mobile */
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr; /* 1 column on mobile */
-    }
-
-    .copyright-bar .container {
-        flex-direction: column;
-        gap: 5px;
-    }
 
 }
-
